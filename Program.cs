@@ -1,10 +1,6 @@
-﻿/* Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B. Решить задачу с использованием методов.
+﻿// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B. Решить задачу с использованием методов.
 
-3, 5 -> 243 (3⁵)
-
-2, 4 -> 16 */
-
-int GetDegree (int a, int b)
+int GetDegree (int a, int b) // метод
 {
     b=Math.Abs(b);
     int degree = a;
@@ -15,6 +11,7 @@ int GetDegree (int a, int b)
     return degree;
 }
 
+Console.WriteLine("Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.");
 Console.WriteLine("input INT A");
 int a = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("input INT B");
@@ -22,35 +19,56 @@ int b = Convert.ToInt32(Console.ReadLine());
 int degree =  GetDegree(a, b);
 
 Console.WriteLine($"{a} в степени {b} = {degree}");
+
+
 /* Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
-452 -> 11
+452 -> 11 ; 82 -> 10; 9012 -> 12*/
 
-82 -> 10
-
-9012 -> 12*/
-
-void GetSumNumbers(string number)
+int GetSumNumbers(string  numbers) // метод
 {
     int sum = 0;
-    System.Console.WriteLine(number);
-    for (int i=0; i < number.Length; i++)
+    for (int i=0; i < numbers.Length; i++)
     {
-        System.Console.WriteLine(number[i]);
-        int c = Convert.ToInt32(number[i]);
-        System.Console.WriteLine($" {i}   {c}  " );
-        //sum = sum +Convert.ToInt32(number[i]);
-        //System.Console.WriteLine( sum );
-        
+        int c = Convert.ToInt32(numbers[i].ToString());
+        //System.Console.WriteLine($" {i} {numbers[i]}  {Convert.ToInt32(numbers[i])}  {c}  " ); // для отладки
+        sum = sum +c;
     }
-
+    return sum;
 }
 
-System.Console.WriteLine(   "input Number");
-string number = Console.ReadLine();
-System.Console.WriteLine(number);
-GetSumNumbers(number);
+Console.WriteLine("Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.");
+System.Console.WriteLine("input Number");
 
+string number = Console.ReadLine();
+int sum = GetSumNumbers(number); 
+System.Console.WriteLine( $"SUM from {number} = {sum}");
+
+//Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран. Элементы массива вводятся пользователем.
+
+string [] InputArray(string [] array) // метод ввод массива
+{
+    for (int i = 0 ; i < array.Length; i++)
+    {
+        System.Console.WriteLine( $"Input array( {i} )");
+        array[i] = Console.ReadLine();
+    }
+    return array;
+}
+
+void WriteArray(string [] array) // метод вывод масиива
+{
+    System.Console.WriteLine("");
+    for ( int i=0 ; i < array.Length; i++)
+    {
+    Console.WriteLine($"array ( {i} ) = {array[i]}");
+    }
+}
+
+Console.WriteLine("Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран. Элементы массива вводятся пользователем.");
+string [] array8 = new string[8];
+string [] newarray8 = InputArray(array8);
+WriteArray(newarray8);
 
 
 
